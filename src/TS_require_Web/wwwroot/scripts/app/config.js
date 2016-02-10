@@ -1,6 +1,6 @@
 /// <reference path="../extdefinitions/tsd.d.ts" />
 require.config({
-    baseUrl: 'scripts/app',
+    baseUrl: '/scripts/app',
     paths: {
         "jquery": "../../lib/jquery/jquery",
         "knockout": "../../lib/knockout/knockout-latest"
