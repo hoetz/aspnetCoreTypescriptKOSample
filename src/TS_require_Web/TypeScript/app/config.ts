@@ -11,5 +11,4 @@ require.config({
 // load AMD module main.ts (compiled to main.js)
 require(['main'],(main) => {
     var app = new main();
-    app.run();
 });

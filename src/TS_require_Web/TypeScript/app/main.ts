@@ -6,10 +6,8 @@ import $ = require('jquery');
 import Person = require('viewmodel');
 
 class Main {
-    runString: string;
 
     constructor() {
-        this.runString = 'hello from flo2';
        
         $(document).ready(function() {
             //Instantiate page view model
@@ -19,9 +17,6 @@ class Main {
 
     }
 
-    run() {
-
-    }
 }
 
 export = Main;
