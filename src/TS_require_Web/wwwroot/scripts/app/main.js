@@ -1,17 +1,16 @@
-define(["require", "exports", 'knockout', 'jquery'], function (require, exports, ko, $) {
+/// <reference path="../extdefinitions/tsd.d.ts" />
+/// <reference path="../definitions/viewmodel.d.ts" />
+define(["require", "exports", 'knockout', 'jquery', 'viewmodel'], function (require, exports, ko, $, Person) {
     var Main = (function () {
         function Main() {
             this.runString = 'hello from flo2';
             $(document).ready(function () {
                 //Instantiate page view model
-                ko.applyBindings();
-                alert("ready!");
+                var vm = new Person("Flo", "Hötzinger", 12);
+                ko.applyBindings(vm);
             });
         }
         Main.prototype.run = function () {
-        };
-        Main.prototype.run2 = function () {
-            alert(this.runString);
         };
         return Main;
     })();
