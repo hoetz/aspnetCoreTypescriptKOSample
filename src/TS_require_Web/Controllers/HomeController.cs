@@ -6,6 +6,11 @@ namespace TS_require_Web.Controllers
     {
         public IActionResult Index()
         {
+           return View();
+        }
+        
+        public IActionResult Site2()
+        {
             return View();
         }
     }

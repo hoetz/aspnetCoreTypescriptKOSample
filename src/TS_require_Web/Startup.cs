@@ -1,5 +1,9 @@
 ﻿using Microsoft.AspNet.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Hosting;
+using Microsoft.AspNet.Diagnostics;
+
 
 namespace TS_require_Web
 {
@@ -13,7 +17,7 @@ namespace TS_require_Web
         public void Configure(IApplicationBuilder app)
         {
             app.UseStaticFiles();
-
+            app.UseDeveloperExceptionPage();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

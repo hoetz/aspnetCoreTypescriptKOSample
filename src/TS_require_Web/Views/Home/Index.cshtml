@@ -1,8 +1,24 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.Extensions.PlatformAbstractions.IApplicationEnvironment appEnv
+<!DOCTYPE html>
 <html>
 <head>
     <title>TypeScript Module loading with RequireJS</title>
-    <script data-main="scripts/app/config.js" type="text/javascript" src="~/lib/requirejs/require.js"></script>
+     <script type="text/javascript" src="@Url.Content("~/lib/requirejs/require.js")"></script>
+     <script type="text/javascript">
+   require.config({
+    baseUrl: '@Url.Content("~/scripts/app")',
+    paths: {
+        "jquery": "../../lib/jquery/jquery",
+        "knockout": "../../lib/knockout/knockout-latest"
+    },
+    shim: {}
+});
+// load AMD module main.ts (compiled to main.js)
+require(['main'], function (main) {
+    var app = new main();
+});
+</script>
+
 </head>
 <body>
     <h1>Setup project</h1>
