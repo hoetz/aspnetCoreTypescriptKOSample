@@ -39,7 +39,9 @@ gulp.task('watch', ['ts-compile'], function () {
 
 gulp.task("copy", function () {
     var npm = {
-        "requirejs": "requirejs/require.js"
+        "requirejs": "requirejs/require.js",
+        "knockout":"knockout/build/output/knockout-latest.js",
+        "jquery":"jquery/dist/jquery.js"
     }
 
     for (var destinationDir in npm) {

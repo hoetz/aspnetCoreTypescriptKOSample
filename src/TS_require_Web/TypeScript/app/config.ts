@@ -1,7 +1,10 @@
 ﻿/// <reference path="../extdefinitions/tsd.d.ts" />
 require.config({
     baseUrl: 'scripts/app',
-    paths: {},
+    paths: {
+        "jquery": "../../lib/jquery/jquery",
+         "knockout": "../../lib/knockout/knockout-latest"
+    },
     shim: {}
 });
 

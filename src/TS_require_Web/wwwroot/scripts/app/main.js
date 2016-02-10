@@ -1,10 +1,14 @@
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", 'knockout', 'jquery'], function (require, exports, ko, $) {
     var Main = (function () {
         function Main() {
             this.runString = 'hello from flo2';
+            $(document).ready(function () {
+                //Instantiate page view model
+                ko.applyBindings();
+                alert("ready!");
+            });
         }
         Main.prototype.run = function () {
-            alert(this.runString);
         };
         Main.prototype.run2 = function () {
             alert(this.runString);
