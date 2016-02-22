@@ -3,7 +3,7 @@
 
 import ko = require('knockout');
 import $ = require('jquery');
-import Person = require('viewmodel');
+import CreatePersonViewModel = require('createPersonViewModel');
 
 class Main {
 
@@ -11,7 +11,7 @@ class Main {
        
         $(document).ready(function() {
             //Instantiate page view model
-            var vm=new Person("Flo","Hötzinger",12);
+            var vm=new CreatePersonViewModel("Flo","Hötzinger",12);
             ko.applyBindings(vm);
         });
 

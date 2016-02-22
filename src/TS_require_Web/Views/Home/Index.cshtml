@@ -2,16 +2,25 @@
 <html>
 <head>
     <title>TypeScript Module loading with RequireJS</title>
+      <link href="/css/milligram.min.css" rel="stylesheet" type="text/css">
     <script data-main='/scripts/app/config.js' type="text/javascript" src="/lib/requirejs/require.js"></script>
 </head>
 <body>
-    <h1>Setup project</h1>
-    <table>
-    <tr>
-            <td data-bind="text: firstName"></td>
-            <td data-bind="text: lastName"></td>
-            <td data-bind="text: age"></td>
-            </tr>
-     </table>
+    <h1>Create user</h1>
+    
+    <form data-bind="submit: saveUser">
+  <fieldset>
+    <label for="firstNameField">Firstname</label>
+    <input data-bind="value: firstName" type="text">
+    
+     <label for="lastNameField">Lastname</label>
+     <input data-bind="value: lastName" type="text">
+     
+     <label for="ageField">Age</label>
+     <input data-bind="value: age" type="text">
+   
+    <input class="button-primary" type="submit" value="Send">
+  </fieldset>
+</form>
 </body>
 </html>

@@ -3,9 +3,10 @@
 /**
  * MainViewModel
  */
-import ko = require('knockout'); 
+import ko = require('knockout');
+import store = require('storePersonCommand') 
 
-class Person  { 
+class CreatePersonViewModel  { 
     public firstName: KnockoutObservable<string>;
     public lastName:KnockoutObservable<string>;
     public age:KnockoutObservable<number>;
@@ -14,8 +15,15 @@ class Person  {
         this.firstName=ko.observable(firstName);
         this.lastName=ko.observable(lastName);
         this.age=ko.observable(age);
-    }     
+    }
+    
+    public saveUser = ()=>
+    {
+        var mystore=new store();
+        mystore.store(this);
+    } 
+     
 }
-export = Person;
+export = CreatePersonViewModel;
     
  
