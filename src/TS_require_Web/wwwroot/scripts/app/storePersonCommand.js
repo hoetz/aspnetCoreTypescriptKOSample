@@ -1,7 +1,7 @@
 define(["require", "exports", 'jquery'], function (require, exports, $) {
     var StorePersonCommand = (function () {
         function StorePersonCommand() {
-            this.store = function (data) {
+            this.Execute = function (data, callback, onError) {
                 $.ajax({
                     type: "POST",
                     url: "/Home/Create",
@@ -10,7 +10,12 @@ define(["require", "exports", 'jquery'], function (require, exports, $) {
                     data: JSON.stringify(data.toJsonModel()),
                     success: function (result) {
                         if (result)
-                            alert("Item created: " + result.key);
+                            callback(result.key);
+                        else
+                            callback(null);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        onError(errorThrown);
                     }
                 });
             };

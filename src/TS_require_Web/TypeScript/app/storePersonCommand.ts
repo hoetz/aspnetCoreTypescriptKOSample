@@ -3,7 +3,11 @@ import $ = require('jquery');
 
 class StorePersonCommand {
 
-    public store = (data: CreatePersonViewModel) => {
+    public Execute = (
+        data: CreatePersonViewModel,
+        callback:(createdId:string)=>any,
+        onError:(errorMessage:string)=>any
+        ) => {
 
         $.ajax({
             type: "POST",
@@ -13,7 +17,12 @@ class StorePersonCommand {
             data: JSON.stringify(data.toJsonModel()),
             success: function(result) {
                 if (result)
-                    alert("Item created: " + result.key);
+                    callback(result.key);
+                else
+                    callback(null);
+            },
+            error:function (jqXHR,textStatus,errorThrown) {
+                onError(errorThrown );
             }
         });
     }

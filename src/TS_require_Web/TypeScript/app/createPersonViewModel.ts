@@ -4,7 +4,7 @@
  * MainViewModel
  */
 import ko = require('knockout');
-import store = require('storePersonCommand')
+import StorePerson = require('storePersonCommand')
 
 class CreatePersonViewModel {
     public firstName: KnockoutObservable<string>;
@@ -18,10 +18,24 @@ class CreatePersonViewModel {
     }
 
     public saveUser = () => {
-        var mystore = new store();
-        mystore.store(this);
+        var mystore = new StorePerson();
+        mystore.Execute(this,this.saveUserCompleted,this.saveUserOnError);
     }
-
+    
+    private saveUserCompleted=(generatedKey:string):void=>
+    {
+        if (generatedKey)
+            alert('User created: '+generatedKey);
+        else
+            alert('Error creating user');
+            
+    }
+    
+    private saveUserOnError=(errorMessage:string):void=>
+    {
+         alert('An error has occured: '+errorMessage);
+    }
+    
     public toJsonModel = () => {
         return { firstName: this.firstName(), lastName: this.lastName(), age: this.age() };
     }

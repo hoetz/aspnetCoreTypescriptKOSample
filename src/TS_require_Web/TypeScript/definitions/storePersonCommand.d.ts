@@ -1,5 +1,5 @@
 import CreatePersonViewModel = require('createPersonViewModel');
 declare class StorePersonCommand {
-    store: (data: CreatePersonViewModel) => void;
+    Execute: (data: CreatePersonViewModel, callback: (createdId: string) => any, onError: (errorMessage: string) => any) => void;
 }
 export = StorePersonCommand;

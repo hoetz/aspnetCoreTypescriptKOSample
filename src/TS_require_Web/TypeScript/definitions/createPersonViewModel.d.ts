@@ -5,6 +5,8 @@ declare class CreatePersonViewModel {
     age: KnockoutObservable<number>;
     constructor(firstName: string, lastName: string, age: number);
     saveUser: () => void;
+    private saveUserCompleted;
+    private saveUserOnError;
     toJsonModel: () => {
         firstName: string;
         lastName: string;
