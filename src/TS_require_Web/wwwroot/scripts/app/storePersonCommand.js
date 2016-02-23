@@ -7,7 +7,7 @@ define(["require", "exports", 'jquery'], function (require, exports, $) {
                     url: "/Home/Create",
                     dataType: "json",
                     contentType: 'application/json',
-                    data: JSON.stringify(data.toJsonModel()),
+                    data: data.toJsonString(),
                     success: function (result) {
                         if (result)
                             callback(result.key);

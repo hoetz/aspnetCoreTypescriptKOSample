@@ -16,8 +16,9 @@ define(["require", "exports", 'knockout', 'storePersonCommand'], function (requi
             this.saveUserOnError = function (errorMessage) {
                 alert('An error has occured: ' + errorMessage);
             };
-            this.toJsonModel = function () {
-                return { firstName: _this.firstName(), lastName: _this.lastName(), age: _this.age() };
+            this.toJsonString = function () {
+                var model = { firstName: _this.firstName(), lastName: _this.lastName(), age: _this.age() };
+                return JSON.stringify(model);
             };
             this.firstName = ko.observable(firstName);
             this.lastName = ko.observable(lastName);

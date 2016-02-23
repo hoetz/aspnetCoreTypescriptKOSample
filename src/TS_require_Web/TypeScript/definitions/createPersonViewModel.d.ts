@@ -7,10 +7,6 @@ declare class CreatePersonViewModel {
     saveUser: () => void;
     private saveUserCompleted;
     private saveUserOnError;
-    toJsonModel: () => {
-        firstName: string;
-        lastName: string;
-        age: number;
-    };
+    toJsonString: () => string;
 }
 export = CreatePersonViewModel;

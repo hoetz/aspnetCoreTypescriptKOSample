@@ -6,7 +6,8 @@
         "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
         "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
         "Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final",
-        "Newtonsoft.Json":"8.0.2"
+        "Newtonsoft.Json":"8.0.2",
+        "Serilog.Framework.Logging":"1.0.0-rc1-final-*"
     },
     "commands": {
         "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --ASPNET_ENV development --server.urls http://localhost:5001"

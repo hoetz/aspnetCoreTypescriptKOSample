@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
+using Serilog;
 
 namespace TS_require_Web
 {
@@ -14,10 +17,24 @@ namespace TS_require_Web
             });
         }
 
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app,
+        IHostingEnvironment env,
+        ILoggerFactory loggerFactory)
         {
+             Log.Logger =
+              new LoggerConfiguration()
+                .MinimumLevel.Error()
+                .WriteTo.TextWriter(System.Console.Out)
+                .WriteTo.RollingFile(@"C:\temp\TSWebLog-{Date}.txt")
+                .CreateLogger();
+            
+            loggerFactory.AddSerilog();
+            
             app.UseStaticFiles();
-            app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -25,6 +42,8 @@ namespace TS_require_Web
                     template: "{controller}/{action}/{id?}",
                     defaults: new { controller = "Home", action = "Index" });
             });
+
+            
 
         }
     }

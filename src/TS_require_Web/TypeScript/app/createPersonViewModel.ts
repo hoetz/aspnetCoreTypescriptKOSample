@@ -36,8 +36,9 @@ class CreatePersonViewModel {
          alert('An error has occured: '+errorMessage);
     }
     
-    public toJsonModel = () => {
-        return { firstName: this.firstName(), lastName: this.lastName(), age: this.age() };
+    public toJsonString = () => {
+        var model= { firstName: this.firstName(), lastName: this.lastName(), age: this.age() }
+        return JSON.stringify(model);
     }
 
 }

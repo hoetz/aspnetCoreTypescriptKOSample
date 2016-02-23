@@ -14,7 +14,7 @@ class StorePersonCommand {
             url: "/Home/Create",
             dataType:"json",
             contentType : 'application/json',
-            data: JSON.stringify(data.toJsonModel()),
+            data: data.toJsonString(),
             success: function(result) {
                 if (result)
                     callback(result.key);
@@ -22,7 +22,7 @@ class StorePersonCommand {
                     callback(null);
             },
             error:function (jqXHR,textStatus,errorThrown) {
-                onError(errorThrown );
+                onError(errorThrown);
             }
         });
     }
