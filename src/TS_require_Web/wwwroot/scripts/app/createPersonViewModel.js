@@ -7,6 +7,9 @@ define(["require", "exports", 'knockout', 'storePersonCommand'], function (requi
                 var mystore = new store();
                 mystore.store(_this);
             };
+            this.toJsonModel = function () {
+                return { firstName: _this.firstName(), lastName: _this.lastName(), age: _this.age() };
+            };
             this.firstName = ko.observable(firstName);
             this.lastName = ko.observable(lastName);
             this.age = ko.observable(age);

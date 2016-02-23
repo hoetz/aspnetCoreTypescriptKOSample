@@ -8,5 +8,12 @@ namespace TS_require_Web.Controllers
         {
             return View();
         }
+        
+        [HttpPost]
+        public IActionResult Create([FromBody] PersonModel item)
+        {
+            return CreatedAtAction("Create",item);
+        }
+
     }
 }

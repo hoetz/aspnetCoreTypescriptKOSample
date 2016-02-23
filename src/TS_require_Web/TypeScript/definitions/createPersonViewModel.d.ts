@@ -5,5 +5,10 @@ declare class CreatePersonViewModel {
     age: KnockoutObservable<number>;
     constructor(firstName: string, lastName: string, age: number);
     saveUser: () => void;
+    toJsonModel: () => {
+        firstName: string;
+        lastName: string;
+        age: number;
+    };
 }
 export = CreatePersonViewModel;
